@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Información del Navegador</h2>
+
+<table id="infonav" border="1">
+<tr>
+    <th>Propiedad</th>
+    <th>Valor</th>
+</tr>
+</table>
+
+<script>
+var tabla = document.getElementById("infonav");
+
+function añadirlinea(nombre, datos) {
+    var linea = tabla.insertRow(-1);
+    var celda1 = linea.insertCell(0);
+    var celda2 = linea.insertCell(1);
+    celda1.innerHTML = nombre;
+    celda2.innerHTML = datos;
+}
+
+añadirlinea("Altura Disponible", screen.availHeight);
+añadirlinea("Anchura Disponible", screen.availWidth);
+añadirlinea("Profundidad de color", screen.colorDepth);
+añadirlinea("Altura", screen.height);
+añadirlinea("Anchura", screen.width);
+añadirlinea("Orientacion de la pantalla", screen.orientation.type);
+añadirlinea("Angulo de la pantalla", screen.orientation.angle);
+añadirlinea("Profundidad de pixeles", screen.pixelDepth);
+
+</script>
+
+</body>
+</html>

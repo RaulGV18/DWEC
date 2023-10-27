@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dni=prompt("introduzca su DNI");
+        let letra = letraDNI(dni);
+        document.write("la letra del dni " + dni + " es " + letra );
+        let num=prompt("introduzca un numero para comprobar si es primo");
+        let primo=esprimo(num);
+        document.write("<br/>")
+        if (primo==true){
+            document.write("el numero " + num + " es un numero primo")
+        }
+        else {
+            document.write("el numero " + num + " no es un numero primo")
+        }
+        
+    </script>
+</body>
+</html>

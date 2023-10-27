@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libreria.js"></script>
+</head>
+<body>
+    <script>
+        let arr = [3,4,6,8,9];
+        let cad = ["hola","buenos","malos","dias","kdfdkkda","isabel","caiste"]
+        let cad2 = ["hola","buenos","malos","dias","kdfdkkda","isabel","caiste","aaaaa","paco"]
+        document.write(Math.max(...arr));
+        document.write("<br/>")
+        let cadenamaslarga=cad.reduce((cadenamaslarga, cadena) => cadenamaslarga.length > cadena.length ? cadenamaslarga : cadena, "");
+        document.write(cadenamaslarga);
+        document.write("<br/>")
+        let pares = arr.filter(numero=>numero%2==0);
+        document.write(pares);
+        document.write("<br/>")
+        let impares = arr.filter(numero=>numero%2!=0);
+        document.write(impares);
+        document.write("<br/>")
+        let is = cad.filter(palabra=>palabra.includes("is"));
+        document.write(is);
+        document.write("<br/>")
+        let div3 = arr.every(numero=>numero%3==0);
+        document.write(div3);
+        document.write("<br/>")
+        let dosarr=cad.concat(cad2);
+        document.write(dosarr);
+        document.write("<br/>");
+        let arrord=dosarr.sort((p1,p2)=>p2.length-p1.length);
+        document.write(arrord);
+        document.write("<br/>");
+        arrcort=arrord.slice(1,arrord.length-1);
+        document.write(arrcort);
+        document.write("<br/>");
+        arrord.splice(0,1,"jeje");
+        document.write(arrord);
+        document.write("<br/>");
+        arrord.splice(3,2,"reemplazo1","reemplazo2")
+        document.write(arrord);
+        document.write("<br/>");
+        let nombre = ["jesus","jose","paco","antonio","raul","juan","borja","geronimo"];
+        let nombresconj=nombre.filter(palabra=>palabra.charAt(0).toLowerCase()=="j");
+        document.write(nombresconj);
+        document.write("<br/>");
+        let primeraletra=[];
+        nombre.forEach(element => {
+            primeraletra.push(element.charAt(0))
+        });
+        document.write(primeraletra);
+        document.write("<br/>");
+        primeraletra.sort();
+        document.write(primeraletra);
+        document.write("<br/>");
+
+
+
+    </script>
+</body>
+</html>

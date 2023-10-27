@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="0" cellspacing="2" bgcolor="black">
+    <script>
+        const anchura = prompt("introduzca la anchura");
+        for (i=0;i<8;i++){
+            document.write("<tr bgcolor=white height="+parseInt(anchura)+">");
+                for (j=0;j<8;j++){
+                    if (i%2==0){
+                        if (j%2==0){
+                            document.write("<td width=" + parseInt(anchura) + " bgcolor=black> &nbsp;</td>")
+                        }
+                        else {
+                            document.write("<td width=" + parseInt(anchura) + " bgcolor=white> &nbsp;</td>")
+                        }
+                    }
+                    else {
+                        if (j%2==0){
+                            document.write("<td width=" + parseInt(anchura) + " bgcolor=white> &nbsp;</td>")
+                        }
+                        else {
+                            document.write("<td width=" + parseInt(anchura) + " bgcolor=black> &nbsp;</td>")
+                        }
+                    }
+                }
+        }
+        document.write("</tr>");
+    </script>
+    </table>
+</body>
+</html>

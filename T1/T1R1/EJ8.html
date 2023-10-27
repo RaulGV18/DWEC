@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1_ej8</title>
+</head>
+<body>
+    <script>
+        const nombre = "Adolfo";
+        const apellido = "Suarez";
+        let acierto = false;
+        let pregunta = "¿Cuál fue el primer presidente de la democracia española?";
+
+        while(!acierto){
+            let respuesta = prompt(pregunta);
+            if(respuesta === nombre){
+                pregunta = "Te falta el apellido,¿Cuál fue el primer presidente de la democracia española?";
+            } else if (respuesta === apellido){
+                pregunta = "Te falta el nombre,¿Cuál fue el primer presidente de la democracia española?";
+            } else if (respuesta === nombre + apellido || respuesta === nombre + ' ' + apellido){
+                acierto = true;
+            } else {
+                pregunta = "Inténtelo de nuevo,¿Cuál fue el primer presidente de la democracia española?";
+            }
+        }
+    </script>
+    <p>lo ha acertado enhorabuena</p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libreria.js"></script>
+</head>
+<body>
+        <p id="texto1">Entendemos el concepto de informática como la ciencia que se ocupa de estudiar
+        los métodos técnicos y los procesos con el fin de almacenar, procesar y transmitir los
+        datos digitalmente. Actualmente, en la informática se unen diversos elementos como
+        es el software, la electrónica, la computación y la programación. Hoy queremos
+        hablarte de la evolución de la informática, de sus orígenes y del proceso de creación,
+        usos y necesidades por el que ha ido pasando hasta llegar a lo que hoy conocemos</p>
+        <p id="texto2">El origen de la informática se sitúa en la segunda mitad del siglo XX, aunque la
+        primera generación de computadoras se desarrolló entre 1951 y 1958, las cuales
+        funcionaban con válvulas, cilindros magnéticos e instrucciones internas. Eran
+        ordenadores que funcionaban muy lentamente, eran muy grandes y generaban mucho
+        calor. Pero con el paso de los años la evolución de la informática no ha dejado de
+        mejorar gracias a las nuevas tecnologías, sobre todo teniendo en cuenta el circuito
+        integrado, el móvil e Internet</p>
+
+        <script>
+            let ventana2= window.open("","","width=350,height=350,top=300,left=600");
+            let parrafo1length=document.createElement("p");
+            let parrafo2length=document.createElement("p");
+            let parrafo1=document.createElement("p");
+            let parrafo2=document.createElement("p");
+            let palabras=document.createElement("p");
+            parrafo1.innerText=document.getElementById("texto1").innerText.replace("los","LOS");
+            parrafo2.innerText=document.getElementById("texto2").innerText.replace("los","LOS");
+            parrafo1length.innerText = document.getElementById("texto1").innerText.length;
+            parrafo2length.innerText = document.getElementById("texto2").innerText.length;
+            ventana2.document.body.appendChild(parrafo1length);
+            ventana2.document.body.appendChild(parrafo2length);
+            palabras.innerText=enconcontrarpalabras(document.getElementById("texto1").innerText,document.getElementById("texto2").innerText,"muy");
+            ventana2.document.body.appendChild(palabras);
+            ventana2.document.body.appendChild(parrafo1);
+            ventana2.document.body.appendChild(parrafo2);
+
+            
+
+        </script>
+        
+</body>
+</html>

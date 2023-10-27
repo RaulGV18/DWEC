@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let jugador1=prompt("jugador 1 introduzca el numero a adivinar");
+        let jugador2=prompt("jugador 2 introduzca un numero")
+        while(jugador1!=jugador2){
+            if (parseInt(jugador1)>parseInt(jugador2)){
+                jugador2=prompt("jugador 2 introduzca un numero,el numero es mayor")
+            }
+            else{
+                jugador2=prompt("jugador 2 introduzca un numero,el numero es menor")
+            }
+        }
+        document.write("NUMERO CORRECTO VICTORIA DEL JUGADOR 2")
+    </script>
+</body>
+</html>

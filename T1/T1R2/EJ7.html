@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="0" cellspacing="2" bgcolor="black">
+    <script>
+        const filas = prompt("introduzca el numero de filas");
+        const columnas = prompt("introduzca el numero de columnas");
+        const altura = prompt("introduzca la altura");
+        const anchura = prompt("introduzca la anchura");
+        for (i=0;i<parseInt(filas);i++){
+            document.write("<tr bgcolor=white height="+parseInt(altura)+">");
+                for (j=0;j<parseInt(columnas);j++){
+                    document.write("<td width=" + parseInt(anchura) + "> &nbsp;</td>")
+                }
+        }
+        document.write("</tr>");
+    </script>
+    </table>
+</body>
+</html>

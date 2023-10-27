@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libreria.js"></script>
+</head>
+<body>
+    <script>
+        let tele = new telefono("44444444");
+        let persona = {
+                nombre:"antonio",
+                edad:20,
+                mayordeedad: function() {
+                if (this.edad>=18){
+                    return this.nombre + " Es mayor de edad"
+                } else {
+                    return this.nombre + " No es mayor de edad"
+                }
+            }
+        }
+        document.write(persona.mayordeedad());
+        document.write("<br/>")
+        document.write(tele.llamadas);
+        tele.llamar();
+        document.write("<br/>")
+        document.write(tele.llamadas);
+        let perso1=new persona2("paco",20);
+        let perso2=new persona2("antonio",22);
+        let perso3=new persona2("jesus",26);
+        let personas = [];
+        personas.push(perso1);
+        personas.push(perso2);
+        personas.push(perso3);
+        document.write("<br/>")
+        document.write(notamedia(personas))
+        document.write("<br/>")
+        let casaA = new vivienda("C/guadaja", 12,17347)
+        document.write("<br/>")
+        let casaB = new vivienda("C/jero", 2,83291)
+        document.write("<br/>")
+        let casaC = new vivienda("C/fluco", 15,29273)
+        document.write("<br/>")
+        let colegioA=new colegio("colegio",2,3);
+        document.write(colegioA.consultarNotaMedia(0));
+    </script>
+</body>
+</html>
