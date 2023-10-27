@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio4</title>
+    <style>
+        table tr td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="canvas" style="width:100%"></table>
+
+    <script>
+    // Crear el canvas
+    window.onload = function() {
+        var table = document.getElementById("canvas");
+        for (var i = 0; i < 100; i++) {
+            var row = table.insertRow(i);
+            for (var j = 0; j < 100; j++) {
+                var cell = row.insertCell(j);
+                cell.addEventListener('mouseover', function(event) {
+                    if (event.ctrlKey) {
+                        this.style.backgroundColor = "red";
+                    } else if (event.shiftKey) {
+                        this.style.backgroundColor = "blue";
+                    }
+                });
+            }
+        }
+    
+        // Rastrear la posición del ratón
+        var currentCell = null;
+        document.addEventListener('mousemove', function(event) {
+            currentCell = document.elementFromPoint(event.clientX, event.clientY);
+        });
+    
+        // Añadir eventos de teclado a nivel de documento
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Backspace" && currentCell && currentCell.tagName === "TD") {
+                // Borrar la celda actual
+                currentCell.style.backgroundColor = "";
+            } else if (event.key === "Enter") {
+                // Borrar todas las celdas
+                var cells = document.getElementsByTagName("TD");
+                for (var i = 0; i < cells.length; i++) {
+                    cells[i].style.backgroundColor = "";
+                }
+            }
+        });
+    }
+    </script>
+    
+</body>
+</html>
