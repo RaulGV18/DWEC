@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio3</title>
+</head>
+<body>
+    <script>
+            let identificadorIntervaloDeTiempo;
+            let i=0;
+            window.onload = function () {
+                repetirCadaSegundo();
+            }
+            function repetirCadaSegundo() {
+                identificadorIntervaloDeTiempo=0;
+                identificadorIntervaloDeTiempo = setInterval(contador, 1000);
+            }
+            function contador() {
+                i++;
+                document.body.innerHTML = "";
+                document.write(i + " Segundos");
+            }
+    </script>
+</body>
+</html>

@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio2</title>
 </head>
 <body>
     <script>
-        window.onmousemove = function() {
-            document.write()
+        window.onmousemove = function position(event){
+	        var x = event.clientX;
+	        var y = event.clientY;
+            console.log(x,y);
         }
     </script>
+    <p>la posicion del raton se imprime en la consola</p>
 </body>
 </html>
