@@ -21,11 +21,11 @@
             });
 
             document.body.addEventListener('dragover', function (e) {
-                e.preventDefault(); // Esto es necesario para permitir soltar
+                e.preventDefault();
             });
 
             document.body.addEventListener('drop', function (e) {
-                e.preventDefault(); // Esto es necesario para permitir soltar
+                e.preventDefault();
 
                 var id = e.dataTransfer.getData('text/plain');
                 var elementoArrastrado = document.getElementById(id);
