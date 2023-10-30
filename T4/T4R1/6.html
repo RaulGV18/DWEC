@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Hexadecimal</title>
+</head>
+<body>
+    <p>Coloca el puntero sobre los codigos hexadecimales para ver su color correspondiente.</p>
+    <table id="colores">
+    </table>
+
+    <script>
+        var colores = {
+            "000000": "Negro",
+            "FFFFFF": "Blanco",
+            "FF0000": "Rojo",
+            "00FF00": "Verde",
+            "0000FF": "Azul",
+        };
+
+        var tabla = document.getElementById('colores');
+        for (var codigo in colores) {
+            var fila = document.createElement('tr');
+            var celda = document.createElement('td');
+            celda.textContent = '#' + codigo;
+            celda.style.backgroundColor = '#' + codigo;
+            celda.onmouseover = function() {
+                this.textContent = colores[this.textContent.slice(1)];
+            };
+            celda.onmouseout = function() {
+                this.textContent = '#' + this.style.backgroundColor.slice(1);
+            };
+            fila.appendChild(celda);
+            tabla.appendChild(fila);
+        }
+    </script>
+</body>
+</html>

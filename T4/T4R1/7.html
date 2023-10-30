@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <p id="descripcion" style="display: none;"></p>
+        <input type="text" id="nombre">nombre
+        <input type="email" id="correo">correo
+        <input type="text" id="comentario">comentario
+        <input type="button" id="enviar" value="enviar">
+        <input type="button" id="reiniciar" value="reiniciar">
+    </form>
+    <script>
+        let nombre=document.getElementById("nombre");
+        let email=document.getElementById("correo");
+        let comentario=document.getElementById("comentario");
+        let enviar=document.getElementById("enviar");
+        let reiniciar = document.getElementById("reiniciar");
+        nombre.onfocus = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.innerText = "En este campo debemos introducir el nombre";
+         descrip.style.display = "block";
+        }
+        nombre.onblur = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.style.display = "none";
+        }
+        email.onfocus = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.innerText = "En este campo debemos introducir el correo electronico";
+         descrip.style.display = "block";
+        }
+        email.onblur = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.style.display = "none";
+        }
+        comentario.onfocus = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.innerText = "En este campo debemos introducir el comentario";
+         descrip.style.display = "block";
+        }
+        comentario.onblur = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.style.display = "none";
+        }
+        enviar.onfocus = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.innerText = "con este boton enviamos el formulario";
+         descrip.style.display = "block";
+        }
+        enviar.onblur = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.style.display = "none";
+        }
+        reiniciar.onfocus = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.innerText = "con este boton reiniciamos los campos del formulario";
+         descrip.style.display = "block";
+        }
+        reiniciar.onblur = function () {
+         let descrip=document.getElementById("descripcion");
+         descrip.style.display = "none";
+        }
+     </script>
+</body>
+</html>
