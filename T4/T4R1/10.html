@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio10</title>
+    <style>
+        body {
+            height: 2000px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <img class="arrastable" src="207094.png" draggable="true" width="200px" height="200px" id="imagen1">
+    <img class="arrastable" src="207094.png" draggable="true" width="200px" height="200px" id="imagen2">
+    <script>
+        var imagenes = document.getElementsByClassName('arrastable');
+
+        for (var i = 0; i < imagenes.length; i++) {
+            var imagen = imagenes[i];
+
+            // Agrega los eventos de arrastre
+            imagen.addEventListener('dragstart', function (e) {
+                e.dataTransfer.setData('text/plain', e.target.id);
+            });
+        }
+
+        document.body.addEventListener('dragover', function (e) {
+            e.preventDefault(); // Esto es necesario para permitir soltar
+        });
+
+        document.body.addEventListener('drop', function (e) {
+            e.preventDefault(); // Esto es necesario para permitir soltar
+
+            var id = e.dataTransfer.getData('text/plain');
+            var elementoArrastrado = document.getElementById(id);
+
+            var x = e.clientX;
+            var y = e.clientY;
+
+            elementoArrastrado.style.position = 'absolute';
+            elementoArrastrado.style.left = x + 'px';
+            elementoArrastrado.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>
