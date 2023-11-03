@@ -34,7 +34,8 @@
             parrafo2length.innerText = document.getElementById("texto2").innerText.length;
             ventana2.document.body.appendChild(parrafo1length);
             ventana2.document.body.appendChild(parrafo2length);
-            palabras.innerText=enconcontrarpalabras(document.getElementById("texto1").innerText,document.getElementById("texto2").innerText,"muy");
+            palab=prompt("introduzca la palabra a buscar")
+            palabras.innerText=enconcontrarpalabras(document.getElementById("texto1").innerText,document.getElementById("texto2").innerText,palab);
             ventana2.document.body.appendChild(palabras);
             ventana2.document.body.appendChild(parrafo1);
             ventana2.document.body.appendChild(parrafo2);

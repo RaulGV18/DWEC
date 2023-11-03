@@ -961,19 +961,27 @@ function conseguiraño(año){
   }
   return year;
 }
-function mostrarlibros(libros){
+function show(libros){
+  document.write ("<table>")
   libros.forEach(element => {
-    document.write(element.id+","+element.titulo + "," + element.descripcion + "," + element.yearpublicacion + "," + element.url + "," + element.urlTexto);
-    document.write("<br/>")
+    document.write("<tr>");
+    document.write("<td>"+ element.id + "</td>");
+    document.write("<td>" + element.titulo +"</td>");
+    document.write("<td>" + element.descripcion   + "</td>");
+    document.write("<td>"+  element.yearpublicacion  +"</td>");
+    document.write("<td>" +element.url  +"</td>");
+    document.write("<td>" +element.urlTexto  +"</td>");
+    document.write("</tr>");
   });
+  document.write("</table>")
 }
 function filtralibros(arraylibros,tipofiltro,limite){
   let arrayfilt
   if (tipofiltro.toLowerCase()=="y"){
-    arrayfilt=arraylibros.filter(lib=>lib.yearpublicacion>=limite);
+    arrayfilt=arraylibros.filter(lib=>lib.yearpublicacion<=limite);
   } 
   else if (tipofiltro.toLowerCase()=="i"){
-    arrayfilt=arraylibros.filter(lib=>lib.id>=limite);
+    arrayfilt=arraylibros.filter(lib=>lib.id<=limite);
   }
   return arrayfilt;
 
@@ -982,13 +990,12 @@ function ordenaLibros(arraylibros,orden,campo){
   let arrayord;
   if (campo=="id"&&orden==0){
     arrayord=arraylibros.sort((lib1,lib2)=>lib2.id-lib1.id);
-    
   } else if (campo=="id"&&orden==1){
     arrayord=arraylibros.sort((lib1,lib2)=>lib1.id-lib2.id);
   } else if (campo=="titulo"&&orden==0){
-    arrayord=arraylibros.sort();
+    arrayord=arraylibros.sort((lib1,lib2)=>lib1.titulo.localeCompare(lib2.titulo));
   } else if (campo=="titulo"&&orden==1){
-    arrayord=arraylibros.sort();
+    arrayord=arraylibros.sort((lib1,lib2)=>lib2.titulo.localeCompare(lib1.titulo));
   }
   else if (campo=="year"&& orden==0){
     arrayord=arraylibros.sort((lib1,lib2)=>parseInt(lib2.yearpublicacion)-parseInt(lib1.yearpublicacion));
@@ -1002,8 +1009,20 @@ function updateItem(arraylibros,id,libro){
   arraylibros.forEach(element => {
     if (element.id==id){
       element.modificaArr(libro);
-    } else {
-      return -1;
+      return libro.id;
     }
   });
+  return -1;
+}
+
+function modLibros(ArrayLibros){
+  ArrayLibros.map()
+}
+
+function modLibros(arrayLibros){
+  return arrayLibros.map(e => mod(e));
+}
+
+function mod({id,titulo,yearpublicacion}){
+  return {id,titulo,yearpublicacion};
 }
