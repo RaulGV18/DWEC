@@ -1014,11 +1014,6 @@ function updateItem(arraylibros,id,libro){
   });
   return -1;
 }
-
-function modLibros(ArrayLibros){
-  ArrayLibros.map()
-}
-
 function modLibros(arrayLibros){
   return arrayLibros.map(e => mod(e));
 }
