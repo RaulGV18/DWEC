@@ -10,8 +10,9 @@
     <script>
         /*
         mostrarlibros(devuelvelibros(objBDH));*/
+        let biblio = new libros(devuelvelibros(objBDH));
         /*mostrarlibros(filtralibros(devuelvelibros(objBDH),"i","20"));*/
-        document.write(show(ordenaLibros(devuelvelibros(objBDH),0,"titulo")));
+        document.write(biblio.show(biblio.arrayLibros));
     </script>
 </body>
 </html>

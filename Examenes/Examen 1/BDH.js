@@ -920,15 +920,72 @@ var objBDH = JSON.parse(cadJsonBDH);
 let id=0;
 
 
-function devuelvelibros(objBDH){
-  let libros = [];
-  for (let i=0;i<objBDH.length;i++){
-    let lib=new libro(objBDH[i]);
-    libros.push(lib);
-  };
-  return libros;
-}
+class libros {
+  constructor (arraylibros){
+    this.arrayLibros = arraylibros
+  }
+  show(libros){
+    document.write ("<table>")
+    libros.forEach(element => {
+      document.write("<tr>");
+      document.write("<td>"+ element.id + "</td>");
+      document.write("<td>" + element.titulo +"</td>");
+      document.write("<td>" + element.descripcion   + "</td>");
+      document.write("<td>"+  element.yearpublicacion  +"</td>");
+      document.write("<td>" +element.url  +"</td>");
+      document.write("<td>" +element.urlTexto  +"</td>");
+      document.write("</tr>");
+    });
+    document.write("</table>")
+  }
+  filtralibros(arraylibros,tipofiltro,limite){
+    let arrayfilt
+    if (tipofiltro.toLowerCase()=="y"){
+      arrayfilt=arraylibros.filter(lib=>lib.yearpublicacion<=limite);
+    } 
+    else if (tipofiltro.toLowerCase()=="i"){
+      arrayfilt=arraylibros.filter(lib=>lib.id<=limite);
+    }
+    return arrayfilt;
+  
+  }
+  ordenaLibros(arraylibros,orden,campo){
+    let arrayord;
+    if (campo=="id"&&orden==0){
+      arrayord=arraylibros.sort((lib1,lib2)=>lib2.id-lib1.id);
+    } else if (campo=="id"&&orden==1){
+      arrayord=arraylibros.sort((lib1,lib2)=>lib1.id-lib2.id);
+    } else if (campo=="titulo"&&orden==0){
+      arrayord=arraylibros.sort((lib1,lib2)=>lib1.titulo.localeCompare(lib2.titulo));
+    } else if (campo=="titulo"&&orden==1){
+      arrayord=arraylibros.sort((lib1,lib2)=>lib2.titulo.localeCompare(lib1.titulo));
+    }
+    else if (campo=="year"&& orden==0){
+      arrayord=arraylibros.sort((lib1,lib2)=>parseInt(lib2.yearpublicacion)-parseInt(lib1.yearpublicacion));
+    } else if (campo=="year"&& orden==1){
+      arrayord=arraylibros.sort((lib1,lib2)=>parseInt(lib1.yearpublicacion)-parseInt(lib2.yearpublicacion));
+    }
+    return arrayord;
+  }
+  
+  updateItem(arraylibros,id,libro){
+    arraylibros.forEach(element => {
+      if (element.id==id){
+        element.modificaArr(libro);
+        return libro.id;
+      }
+    });
+    return -1;
+  }
+  modLibros(arrayLibros){
+    return arrayLibros.map(e => mod(e));
+  }
+  
+  mod({id,titulo,yearpublicacion}){
+    return {id,titulo,yearpublicacion};
+  }
 
+}
 class libro {
   constructor(objBDH) {
     this.id=id;
@@ -961,63 +1018,11 @@ function conseguiraño(año){
   }
   return year;
 }
-function show(libros){
-  document.write ("<table>")
-  libros.forEach(element => {
-    document.write("<tr>");
-    document.write("<td>"+ element.id + "</td>");
-    document.write("<td>" + element.titulo +"</td>");
-    document.write("<td>" + element.descripcion   + "</td>");
-    document.write("<td>"+  element.yearpublicacion  +"</td>");
-    document.write("<td>" +element.url  +"</td>");
-    document.write("<td>" +element.urlTexto  +"</td>");
-    document.write("</tr>");
-  });
-  document.write("</table>")
-}
-function filtralibros(arraylibros,tipofiltro,limite){
-  let arrayfilt
-  if (tipofiltro.toLowerCase()=="y"){
-    arrayfilt=arraylibros.filter(lib=>lib.yearpublicacion<=limite);
-  } 
-  else if (tipofiltro.toLowerCase()=="i"){
-    arrayfilt=arraylibros.filter(lib=>lib.id<=limite);
-  }
-  return arrayfilt;
-
-}
-function ordenaLibros(arraylibros,orden,campo){
-  let arrayord;
-  if (campo=="id"&&orden==0){
-    arrayord=arraylibros.sort((lib1,lib2)=>lib2.id-lib1.id);
-  } else if (campo=="id"&&orden==1){
-    arrayord=arraylibros.sort((lib1,lib2)=>lib1.id-lib2.id);
-  } else if (campo=="titulo"&&orden==0){
-    arrayord=arraylibros.sort((lib1,lib2)=>lib1.titulo.localeCompare(lib2.titulo));
-  } else if (campo=="titulo"&&orden==1){
-    arrayord=arraylibros.sort((lib1,lib2)=>lib2.titulo.localeCompare(lib1.titulo));
-  }
-  else if (campo=="year"&& orden==0){
-    arrayord=arraylibros.sort((lib1,lib2)=>parseInt(lib2.yearpublicacion)-parseInt(lib1.yearpublicacion));
-  } else if (campo=="year"&& orden==1){
-    arrayord=arraylibros.sort((lib1,lib2)=>parseInt(lib1.yearpublicacion)-parseInt(lib2.yearpublicacion));
-  }
-  return arrayord;
-}
-
-function updateItem(arraylibros,id,libro){
-  arraylibros.forEach(element => {
-    if (element.id==id){
-      element.modificaArr(libro);
-      return libro.id;
-    }
-  });
-  return -1;
-}
-function modLibros(arrayLibros){
-  return arrayLibros.map(e => mod(e));
-}
-
-function mod({id,titulo,yearpublicacion}){
-  return {id,titulo,yearpublicacion};
+function devuelvelibros(objBDH){
+  let libros = [];
+  for (let i=0;i<objBDH.length;i++){
+    let lib=new libro(objBDH[i]);
+    libros.push(lib);
+  };
+  return libros;
 }
