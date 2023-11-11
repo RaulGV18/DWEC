@@ -1,0 +1,88 @@
+body {
+    background-color: white;
+    color: white;
+    align-items: center;
+    color: black;
+}
+
+.form-container {
+    width: 50%;
+    margin: auto;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    margin-left: 15px;
+}
+
+form:first-child{
+    padding-top: 100px;
+}
+
+input[type=submit] {
+    background-color: blue;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 10px;
+    width: 100%;
+}
+input[type=submit]:disabled {
+    background-color: lightblue;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 10px;
+}
+
+.contenedor {
+    width: 40%;
+    display: flex;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    margin-top: 50px;
+    margin: 50px auto;
+
+}
+
+.contenedor .form-container {
+    width: 100%;
+    background-color: white;
+}
+.contenedor .form-container p{
+    margin: 10px;
+}
+.contenedor .form-container h2{
+    margin: 10px;
+}
+.contenedor .form-container form{
+    margin: 10px;
+    
+}
+img {
+    position: absolute;
+    top: 10px;
+    left: 43%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+#cvv {
+    width: 30%;
+    margin-left: 15px;
+}
