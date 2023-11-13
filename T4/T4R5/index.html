@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej1</title>
+    <script src="libreriaej1.js"></script>
+</head>
+<body>
+    
+    <h1>PAGINA</h1>
+    <br>
+    <p id="saludo"></p>
+    <button onclick="modificarestilo()">modificar estilos</button>
+    <button onclick="borrarCookie('usuario')">CerrarSesion</button>
+    <script>
+        let saludo=document.getElementById("saludo");
+        if (leerCookie("usuario")!== null){
+            saludo.innerText="Hola "+ leerCookie("usuario");
+        } else {
+            let nomusu=prompt("Introduzca su nombre");
+            crearCookie(nomusu,"usuario","Thu, 01 Jan 2099 00:00:00 UTC");
+        }
+        if (leerCookie("colorletra")!==null&&leerCookie("colorfondo")!==null&&leerCookie("fontsize")!==null){
+            document.body.style.backgroundColor=leerCookie("colorfondo");
+            document.body.style.fontSize=leerCookie("fontsize");
+            document.body.style.color=leerCookie("colorletra");
+        }
+        saludo.innerText="Hola "+ leerCookie("usuario");
+    </script>
+</body>
+</html>
