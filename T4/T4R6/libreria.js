@@ -7,7 +7,6 @@ class booklist {
     constructor() {
         this.librosleidos=0;
         this.libros=[];
-        this.ultimolibroleido;
 
     }
     add(libro){
@@ -30,7 +29,6 @@ class book{
         this.readdate;
     }
 }
-let libs = new booklist();
 
 document.addEventListener("DOMContentLoaded", function () {
     let isbn=document.getElementById("isbn")
@@ -41,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let tituband=false;
     isbn.onblur = function () {
         let expr = "^[0-9]{13}$"
-        let valido=validaExpresionRegular(expr,isbn.value)
+        let valido=validaExpresionRegular(isbn.value,expr)
         if (valido) {
             isbnband = true;
           } else {
@@ -55,23 +53,37 @@ document.addEventListener("DOMContentLoaded", function () {
             botonhab = false;
           }
           if (botonhab) {
-            let boton = document.getElementById("Añadir");
-            boton.disabled = false;
+            let boton = document.getElementById("enlace");
+            boton.style.display = "block"
           } else {
-            let boton = document.getElementById("Añadir");
-            boton.disabled = true;
+            let boton = document.getElementById("enlace");
+            boton.style.display = "none"
           }
     }
     titulo.onblur= function() {
-        if (titulo.value !== ""){
-            tituband==true;
+        if (titulo.value !== " "){
+            tituband=true;
         } else {
-            tituband==false;
+            tituband=false;
+        }
+        if (
+          isbnband == true && autorband == true && tituband == true
+        ) {
+          botonhab = true;
+        } else {
+          botonhab = false;
+        }
+        if (botonhab) {
+          let boton = document.getElementById("enlace");
+          boton.style.display = "block"
+        } else {
+          let boton = document.getElementById("enlace");
+          boton.style.display = "none"
         }
     }
     autor.onblur = function() {
-        let expr = "^[A-Za-z]$"
-        let valido=validaExpresionRegular(expr,autor.value)
+        let expr = "^[A-Za-z]+$"
+        let valido=validaExpresionRegular(autor.value,expr)
         if (valido) {
             autorband = true;
           } else {
@@ -85,30 +97,51 @@ document.addEventListener("DOMContentLoaded", function () {
             botonhab = false;
           }
           if (botonhab) {
-            let boton = document.getElementById("Añadir");
-            boton.disabled = false;
+            let boton = document.getElementById("enlace");
+            boton.style.display = "block"
           } else {
-            let boton = document.getElementById("Añadir");
-            boton.disabled = true;
+            let boton = document.getElementById("enlace");
+            boton.style.display = "none"
           }
-    }
-    let boton=document.getElementById("añadir");
-
-    boton.onclick = function (){
-        let lib=new book(document.getElementById("titulo").value,document.getElementById("genero").value,document.getElementById("autor").value,document.getElementById("isbn").value);
-        libs.libros.push(lib);
-        libs.libros.forEach(element => {
-            let cont=0;
-            let li=document.createElement("li")
-            
-            let tit=document.createElement("p")
-            tit.id = "titlib" + cont;
-            let autor= document.createElement("p")
-            autor.id="autlib" + cont;
-            let genero = document.createElement("p")
-            genero.id="genlib" + cont;
-            let 
-        });
     }
     
 });
+let libs = new booklist();
+function añadirlibroslista(){
+  let cont=0;
+  let lista= document.getElementById("listalibros");
+  lista.innerHTML="";
+  let titulo = document.createElement("h4");
+  titulo.innerText = "Lista de libros"
+  lista.appendChild(titulo);
+  let numlibs = document.createElement("p");
+
+  let lib=new book(document.getElementById("titulo").value,document.getElementById("genero").value,document.getElementById("autor").value,document.getElementById("isbn").value);
+  libs.libros.push(lib);
+  numlibs.innerText = libs.libros.length;
+  for (let i=0;i<libs.libros.length;i++){
+      let li=document.createElement("li")
+      li.className="libros";
+      let tit=document.createElement("p")
+      tit.id = "titlib" + cont;
+      tit.innerText=libs.libros[i].title
+      let autor= document.createElement("p")
+      autor.id="autlib" + cont;
+      autor.innerText=libs.libros[i].author
+      let genero = document.createElement("p")
+      genero.id="genlib" + cont;
+      genero.innerText=libs.libros[i].genre
+      let leido = document.createElement("p")
+      leido.id="leidolib" + cont;
+      if (libs.libros[i].read) {
+        leido.innerText="Leido en fecha" + element.readdate
+      } else {
+        leido.innerText="No Leido"
+      }
+      li.appendChild(tit);
+      li.appendChild(autor);
+      li.appendChild(genero);
+      li.appendChild(leido);
+      lista.appendChild(li);
+  };
+}

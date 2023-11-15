@@ -25,7 +25,7 @@ main > form > select {
 main > form {
     text-align: center;
 }
-main > form > input[type="submit"]{
+main > form > a{
     padding: 8px;
     border-radius: 20px;
 }

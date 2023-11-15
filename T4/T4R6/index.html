@@ -11,7 +11,7 @@
         <img src="5900abab6c6df01bd47864b3045d197c.jpg" alt="" width="300px">
     </header>
     <main>
-        <form action="">
+        <form>
             <label for="isbn">ISBN</label>
             <input type="text" name="isbn" id="isbn">
             <br>
@@ -20,7 +20,7 @@
             <br>
             <label for="autor">Autor</label>
             <input type="text" name="autor" id="autor">
-            <label for="gener">Genero</label>
+            <label for="genero">Genero</label>
             <select name="genero" id="genero">
                 <option value="Desconocido">Desconocido</option>
                 <option value="Accion">Accion</option>
@@ -31,7 +31,7 @@
                 <option value="Historico">Historico</option>
             </select>
             <br>
-            <input type="submit" value="Añadir libro" disabled id="Añadir">
+            <a href="#" id="enlace" onclick="añadirlibroslista()" style="display: none;">Añadir libro</a>
 
         </form>
 
@@ -41,5 +41,6 @@
         </ul>
 
     </main>
+    <script src="libreria.js"></script>
 </body>
 </html>
