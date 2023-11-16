@@ -12,21 +12,48 @@ class booklist {
     add(libro){
         this.libros.push(libro);
     }
-    finishbook(libro){
-
+    finishbook(id){
+      if (this.encontrarlibro(id)){
+        this.devolverlibro(id).read = true;
+        let hoy = new Date();
+        this.devolverlibro(id).readdate = hoy.getDate() +"-"+ hoy.getMonth()+"-" + hoy.getFullYear();
+        return this.devolverlibro(id).readdate;
+      } else {
+        console.log("el libro no existe");
+      }
     }
-    encontrarlibro(isbn){
-
+    encontrarlibro(id){
+      for (let i = 0; i < this.libros.length; i++) {
+        if (this.libros[i].id=id){
+          return true;
+        } else {
+          return false;
+        }
+        
+      }
+    }
+    devolverlibro(id){
+      for (let i = 0; i < this.libros.length; i++) {
+        if (this.libros[i].id=id){
+          return this.libros[i];
+        } else {
+          return "";
+        }
+      }
     }
 }
+let id = 0;
 class book{
+
     constructor(titulo,genero,autor,isbn) {
+        this.id=id;
         this.isbn=isbn;
         this.title=titulo;
         this.genre=genero;
         this.author=autor;
         this.read=false;
         this.readdate;
+        id++;
     }
 }
 
@@ -118,10 +145,17 @@ function añadirlibroslista(){
 
   let lib=new book(document.getElementById("titulo").value,document.getElementById("genero").value,document.getElementById("autor").value,document.getElementById("isbn").value);
   libs.libros.push(lib);
-  numlibs.innerText = libs.libros.length;
+  let contlibs=document.createElement("p");
+  contlibs.id= "contlibs";
+  contlibs.innerText = "libros leidos= " + libs.librosleidos  + "/" + libs.libros.length;
+  lista.appendChild(contlibs);
   for (let i=0;i<libs.libros.length;i++){
+      let contlibs=document.createElement("p")
       let li=document.createElement("li")
       li.className="libros";
+      let idlib=document.createElement("p")
+      idlib.style.display = "none";
+      idlib.innerText = lib.id;
       let tit=document.createElement("p")
       tit.id = "titlib" + cont;
       tit.innerText=libs.libros[i].title
@@ -134,14 +168,28 @@ function añadirlibroslista(){
       let leido = document.createElement("p")
       leido.id="leidolib" + cont;
       if (libs.libros[i].read) {
-        leido.innerText="Leido en fecha" + element.readdate
+        leido.innerText="Leido en fecha " + libs.finishbook(idlib.innerText);
       } else {
-        leido.innerText="No Leido"
+        leido.innerText="No Leido";
       }
+      li.appendChild(idlib);
       li.appendChild(tit);
       li.appendChild(autor);
       li.appendChild(genero);
       li.appendChild(leido);
       lista.appendChild(li);
+      li.onclick = function () {
+        if (libs.libros[i].read) {
+          leido.innerText="No Leido";
+          libs.libros[i].read=false;
+          libs.librosleidos--;
+        } else {
+          leido.innerText="Leido en fecha " + libs.finishbook(idlib.innerText);
+          libs.libros[i].read=true;
+          libs.librosleidos++;
+        }
+        let contlibs=document.getElementById("contlibs")
+        contlibs.innerText = "libros leidos= " + libs.librosleidos  + "/" + libs.libros.length;
+      }
   };
 }
