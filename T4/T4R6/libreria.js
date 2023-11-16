@@ -14,7 +14,6 @@ class booklist {
     }
     finishbook(id){
       if (this.encontrarlibro(id)){
-        this.devolverlibro(id).read = true;
         let hoy = new Date();
         this.devolverlibro(id).readdate = hoy.getDate() +"-"+ hoy.getMonth()+"-" + hoy.getFullYear();
         return this.devolverlibro(id).readdate;
@@ -41,6 +40,17 @@ class booklist {
         }
       }
     }
+    contarlibrosleidos(){
+      this.librosleidos=0;
+      for (let i = 0; i < this.libros.length; i++) {
+        if (this.libros[i].read){
+          this.librosleidos++;
+        } else {
+          
+        }
+    }
+    return this.librosleidos;
+  }
 }
 let id = 0;
 class book{
@@ -147,7 +157,7 @@ function añadirlibroslista(){
   libs.libros.push(lib);
   let contlibs=document.createElement("p");
   contlibs.id= "contlibs";
-  contlibs.innerText = "libros leidos= " + libs.librosleidos  + "/" + libs.libros.length;
+  contlibs.innerText = "libros leidos= " + libs.contarlibrosleidos()  + "/" + libs.libros.length;
   lista.appendChild(contlibs);
   for (let i=0;i<libs.libros.length;i++){
       let contlibs=document.createElement("p")
@@ -189,7 +199,7 @@ function añadirlibroslista(){
           libs.librosleidos++;
         }
         let contlibs=document.getElementById("contlibs")
-        contlibs.innerText = "libros leidos= " + libs.librosleidos  + "/" + libs.libros.length;
+        contlibs.innerText = "libros leidos= " + libs.contarlibrosleidos()  + "/" + libs.libros.length;
       }
   };
 }
