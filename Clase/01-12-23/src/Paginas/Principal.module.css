@@ -1,0 +1,29 @@
+main {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+main > form > input {
+    margin: 10px;
+    border-radius: 3px;
+}
+main > form > select {
+    margin: 10px;
+}
+main > form {
+    text-align: center;
+}
+main > form > a{
+    padding: 8px;
+    border-radius: 20px;
+}
+main > ul > li {
+    list-style: none;
+    padding: 10px;
+    color: black;
+    background-color: #e0eaea;
+    width: 200px;
+    border: 2px solid black;
+    
+}

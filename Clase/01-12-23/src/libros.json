@@ -1,0 +1,50 @@
+[
+    {
+      "id": "5591710361",
+      "title": "Reintroducing React",
+      "subtitle": "Modern React with Every React Update Since v16 Demystified (includes advanced hooks)",
+      "authors": "Ohans Emmanuel",
+      "image": "https://www.dbooks.org/img/books/5591710361s.jpg",
+      "url": "https://www.dbooks.org/reintroducing-react-5591710361/"
+    },
+    {
+      "id": "3319511181",
+      "title": "Reactive Power Control in AC Power Systems",
+      "subtitle": "Fundamentals and Current Issues",
+      "authors": "Naser Mahdavi Tabatabaei, Ali Jafari Aghbolaghi, Nicu Bizon, Frede Blaabjerg",
+      "image": "https://www.dbooks.org/img/books/3319511181s.jpg",
+      "url": "https://www.dbooks.org/reactive-power-control-in-ac-power-systems-3319511181/"
+    },
+    {
+      "id": "1493",
+      "title": "React Succinctly",
+      "subtitle": "",
+      "authors": "Samer Buna",
+      "image": "https://www.dbooks.org/img/books/1493s.jpg",
+      "url": "https://www.dbooks.org/react-succinctly-1493/"
+    },
+    {
+      "id": "1507",
+      "title": "React in patterns",
+      "subtitle": "",
+      "authors": "Krasimir Tsonev",
+      "image": "https://www.dbooks.org/img/books/1507s.jpg",
+      "url": "https://www.dbooks.org/react-in-patterns-1507/"
+    },
+    {
+      "id": "5591647427",
+      "title": "React Native Notes for Professionals",
+      "subtitle": "",
+      "authors": "Stack Overflow Community",
+      "image": "https://www.dbooks.org/img/books/5591647427s.jpg",
+      "url": "https://www.dbooks.org/react-native-notes-for-professionals-5591647427/"
+    },
+    {
+      "id": "5591647562",
+      "title": "React JS Notes for Professionals",
+      "subtitle": "",
+      "authors": "Stack Overflow Community",
+      "image": "https://www.dbooks.org/img/books/5591647562s.jpg",
+      "url": "https://www.dbooks.org/react-js-notes-for-professionals-5591647562/"
+    }
+]

@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cabecera {
+    width: 100%;
+    display: grid;
+    height: 100px;
+    grid-template-columns: repeat(5,1fr);
+    align-items: center;
+    justify-content: center;
+    background-color:  #f5f5f5;
+}
+.cabecera__navegacion {
+    grid-column: 5/6;
+    width: 100%;
+}
+.cabecera__navegacion ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+.cabecera__navegacion ul li a{
+    text-decoration: none;
+    color: black;
+}

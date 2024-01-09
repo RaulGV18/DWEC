@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="respuestaDelServidor"></p>
+    <button onclick="RealizaSolicitud()">boton</button>
+    <script>
+    function RealizaSolicitud(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://reqres.in/api/users?page=2", true);
+
+        xhr.onload = function(){
+        console.log(xhr.responseText);
+        let objetojson=formateajson(xhr.responseText);
+        objetojson.data.forEach(element => {
+            let parrafo=document.createElement('p');
+            parrafo.innerText=element.email;
+            document.body.appendChild(parrafo);
+        });
+        };
+        xhr.send();
+    }
+    function formateajson(json) {
+        let objeto=JSON.parse(json);
+        return objeto;
+    }
+    </script>
+</body>
+</html>
