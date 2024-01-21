@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+.contenedorcard li {
+  background-color: lightblue;
+  padding: 5px;
+  list-style: none;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+.contenedorcard li img {
+  width: 25%;
+  border-radius: 15px;
+}
