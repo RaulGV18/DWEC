@@ -259,6 +259,9 @@ function agregarAlCarrito(id) {
 }
 
 function mostrarCarrito() {
+    let token = localStorage.getItem('token');
+
+    if (token !== null) {
     let selectcategorias = document.getElementById('filtros');
     selectcategorias.innerHTML="";
     let divProductos = document.getElementById('productos');
@@ -296,6 +299,9 @@ function mostrarCarrito() {
     carritoDiv.appendChild(ul);
     carritoDiv.appendChild(p);
     carritoDiv.appendChild(finalizarPedidoButton);
+    } else {
+    }
+    
 }
 function crearorden() {
     var selectOrdenElement = document.createElement("select");
