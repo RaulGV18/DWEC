@@ -239,7 +239,7 @@ function agregarAlCarrito(id) {
         let productoExistente;
         console.log(carrito);
 
-        for (var i = 0; i < carrito.length; i++) {
+        for (let i = 0; i < carrito.length; i++) {
             if (carrito[i].id === id) {
                 productoExistente = carrito[i];
                 break;
@@ -278,7 +278,7 @@ function mostrarCarrito() {
     let ul = document.createElement('ul');
 
     carrito.forEach((producto, index) => {
-        var li = document.createElement('li');
+        let li = document.createElement('li');
         li.innerHTML = `
             <span>${producto.nombre} x${producto.cantidad} - ${producto.precio}€</span>
             <button onclick="incrementarCantidad(${index})">+</button>
@@ -289,7 +289,7 @@ function mostrarCarrito() {
         total += producto.precio * producto.cantidad;
     });
 
-    var finalizarPedidoButton = document.createElement('button');
+    let finalizarPedidoButton = document.createElement('button');
     finalizarPedidoButton.textContent = 'Finalizar Pedido';
     finalizarPedidoButton.addEventListener('click', finalizarPedido);
 
@@ -304,17 +304,17 @@ function mostrarCarrito() {
     
 }
 function crearorden() {
-    var selectOrdenElement = document.createElement("select");
+    let selectOrdenElement = document.createElement("select");
     selectOrdenElement.id = "selectorden";
     selectOrdenElement.onchange = filtroorden;
 
-    var optionDescendente = document.createElement("option");
+    let optionDescendente = document.createElement("option");
     optionDescendente.value = "descendente";
     optionDescendente.id = "descendente";
     optionDescendente.text = "Descendente";
     optionDescendente.selected = true;
 
-    var optionAscendente = document.createElement("option");
+    let optionAscendente = document.createElement("option");
     optionAscendente.value = "ascendente";
     optionAscendente.id = "ascendente";
     optionAscendente.text = "Ascendente";
@@ -322,7 +322,7 @@ function crearorden() {
     selectOrdenElement.appendChild(optionDescendente);
     selectOrdenElement.appendChild(optionAscendente);
 
-    var filtrosDiv = document.getElementById("filtros");
+    let filtrosDiv = document.getElementById("filtros");
     filtrosDiv.appendChild(selectOrdenElement);
 }
 
@@ -343,13 +343,13 @@ function decrementarCantidad(index) {
     guardarCarritoEnLocalStorage();
 }
 function finalizarPedido() {
-    var mensaje = 'Productos en el carrito:\n';
+    let mensaje = 'Productos en el carrito:\n';
 
     carrito.forEach(producto => {
         mensaje += `${producto.nombre} x${producto.cantidad} - ${producto.precio}€\n`;
     });
 
-    var total = carrito.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
+    let total = carrito.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
     mensaje += `\nTotal: ${total}€`;
 
     alert(mensaje);
