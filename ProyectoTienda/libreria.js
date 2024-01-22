@@ -96,11 +96,13 @@ function obtenerProductos() {
         });
 }
 function recogerproductos(){
+    let productoscompar=[];
     fetch('https://fakestoreapi.com/products')
         .then(res => res.json())
         .then(data => {
-            productos = data;
+             productoscompar=data;
         });
+    return productoscompar;
 }
 
 function mostrarProductos() {
@@ -231,7 +233,7 @@ function guardarCarritoEnLocalStorage() {
 }
 
 function agregarAlCarrito(id) {
-    recogerproductos();
+    let productoscompar=recogerproductos();
     let producto = productos.find(item => item.id === id);
     console.log(producto);
     if (producto) {
