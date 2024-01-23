@@ -123,7 +123,7 @@ function mostrarProductos() {
 
 function mostrardetalles(idproducto){
     let producto = productos.find(producto => producto.id === idproducto);
-    alert(`Nombre: ${producto.title}\nPrecio: ${producto.price}\nDescripción: ${producto.description}`);
+    alert(`Nombre: ${producto.title}\nCategoria: ${producto.category}\nPrecio: ${producto.price}€\nDescripción: ${producto.description}`);
 }
 function cerrarsesion(){
     localStorage.clear();
@@ -233,13 +233,11 @@ function guardarCarritoEnLocalStorage() {
 }
 
 function agregarAlCarrito(id) {
-    let productoscompar=recogerproductos();
     let producto = productos.find(item => item.id === id);
     console.log(producto);
     if (producto) {
         let cantidad = 1;
         let productoExistente;
-        console.log(carrito);
 
         for (let i = 0; i < carrito.length; i++) {
             if (carrito[i].id === id) {
@@ -253,7 +251,6 @@ function agregarAlCarrito(id) {
         } else {
             carrito.push({ id, nombre: producto.title, precio: producto.price, cantidad });
         }
-        console.log(carrito);
         guardarCarritoEnLocalStorage();
     } else {
         alert('Producto no encontrado.');
