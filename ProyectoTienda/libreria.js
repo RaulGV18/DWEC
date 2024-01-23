@@ -123,13 +123,38 @@ function mostrarProductos() {
 
 function mostrardetalles(idproducto){
     let producto = productos.find(producto => producto.id === idproducto);
-    alert(`Nombre: ${producto.title}\nCategoria: ${producto.category}\nPrecio: ${producto.price}€\nDescripción: ${producto.description}`);
+    let selectcategorias = document.getElementById('filtros');
+    selectcategorias.innerHTML="";
+    let divProductos = document.getElementById('productos');
+    divProductos.innerHTML="";
+    let divPaginacion = document.getElementById('paginacion');
+    divPaginacion.innerHTML="";
+    let carritoDiv = document.getElementById('carrito');
+    carritoDiv.innerHTML = '';
+    let divdetalle=document.getElementById("detalle");
+    divdetalle.innerHTML= `<div class="Tarjeta">
+    <h2>${producto.title}</h2>
+    <img src="${producto.image}" alt="${producto.title}">
+    <h3>${producto.category}</h3>
+    <p>${producto.price}€</p>
+    <p>${producto.description}</p>
+    <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
+    </div>`;
 }
 function cerrarsesion(){
     localStorage.clear();
-    comprobarpagina();
+    let selectcategorias = document.getElementById('filtros');
+    selectcategorias.innerHTML="";
     let divProductos = document.getElementById('productos');
     divProductos.innerHTML="";
+    let divPaginacion = document.getElementById('paginacion');
+    divPaginacion.innerHTML="";
+    let carritoDiv = document.getElementById('carrito');
+    carritoDiv.innerHTML = '';
+    let divdetalle=document.getElementById("detalle");
+    divdetalle.innerHTML= "";
+    comprobarpagina();
+
 }
 
 
