@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="libreria.js"></script>
+    <script src="carrito.js"></script>
+</head>
+<body>
+    <header class="cabecera">
+        <nav class="cabecera__navegacion">
+            <ul class="cabecera__navegacion__lista">
+                <li><a href="" onclick="comprobarpagina()">Inicio</a></li>
+                <li><a href="#" onclick="mostrarCarrito()">Carrito <p id="carritonum"></p></a></li>
+                <li><a href="" id="cerrarsesion" onclick='cerrarsesion()' style="display: none;">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div id="login"></div>
+        <div id="filtros">
+        </div>
+        <div id="productos">
+        </div>
+        <div id="carrito">
+
+        </div>
+        <div id="paginacion">
+
+        </div>
+        <div id="detalle">
+
+        </div>
+        <script>
+            comprobarpagina();
+        </script>
+    </section>
+</body>
+</html>
